@@ -35,7 +35,7 @@ Bootloader ( U-boot )
    /source/linux/u-boot/changelog
 
 Kernel ( Linux )
-################
+****************************************************
 
 :doc:`configure </source/linux/kernel/configure>`
     How to configure kernel.
