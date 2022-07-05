@@ -1,5 +1,5 @@
 Welcome to Avnet-Ultra96-V2_ Documentation
-==========================================
+##########################################
 
 For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected the Avnet-Ultra96-V2_ platform as the reference development kit. There are several advantages in using this platform for an introductory course, enabling the potential reach to a wider audience:
 
@@ -10,7 +10,7 @@ For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected t
 .. _Avnet-Ultra96-V2: https://ohwr.org/project/soc-course/wikis/Avnet-Ultra96-V2
 
 Bootloader ( U-boot )
-##################
+*********************
 
 :doc:`configure </source/linux/u-boot/configure>`
     How to configure bootloader.
@@ -35,7 +35,7 @@ Bootloader ( U-boot )
    /source/linux/u-boot/changelog
 
 Kernel ( Linux )
-****************************************************
+****************
 
 :doc:`configure </source/linux/kernel/configure>`
     How to configure kernel.
