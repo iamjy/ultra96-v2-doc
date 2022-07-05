@@ -12,16 +12,16 @@ For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected t
 Bootloader ( U-boot )
 ---------------------
 
-:doc:`configure </source/linux/bootloader/u-boot/configure>`
+:doc:`configure </source/linux/u-boot/configure>`
     How to configure bootloader.
     
-:doc:`compile </source/linux/bootloader/u-boot/compile>`
+:doc:`compile </source/linux/u-boot/compile>`
     How to compile bootloader.
     
-:doc:`development </source/linux/bootloader/u-boot/development>`
+:doc:`development </source/linux/u-boot/development>`
     Guidelines and release planning and check dependencies.
     
-:doc:`changelog </source/linux/bootloader/u-boot/changelog>`
+:doc:`changelog </source/linux/u-boot/changelog>`
     The bootloader development changelog.
 
 .. toctree::
@@ -29,10 +29,10 @@ Bootloader ( U-boot )
    :hidden:
    :caption: Bootloader
 
-   /source/linux/bootloader/u-boot/configure
-   /source/linux/bootloader/u-boot/compile
-   /source/linux/bootloader/u-boot/development
-   /source/linux/bootloader/u-boot/changelog
+   /source/linux/u-boot/configure
+   /source/linux/u-boot/compile
+   /source/linux/u-boot/development
+   /source/linux/u-boot/changelog
 
 Kernel ( Linux )
 ----------------
