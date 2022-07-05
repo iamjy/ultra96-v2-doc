@@ -92,7 +92,7 @@ Petalinux
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Build
+   :caption: Petalinux
 
    /source/xilinx/petalinux/build
    /source/xilinx/petalinux/debug
@@ -110,7 +110,7 @@ Vitis IDE
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: Build
+   :caption: Vitis IDE
 
    /source/xilinx/vitis_ide/build
    /source/xilinx/vitis_ide/debug
