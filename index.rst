@@ -1,10 +1,13 @@
-Welcome to DTK4412 Documentation
+Welcome to Avnet-Ultra96-V2_ Documentation
 ================================
 
-DTK4412 is Android / Linux Training Kit based on Exynos4412_.
-DTK4412 Training Kit is a full featured Android development platform that provides an ideal starting point for creating high-performance embedded devices. Based upon Samsung Exynos4412_ quad core processor, the DTK4412 includes all of the software tools and accessories required to immediately begin development work.
+For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected the Avnet-Ultra96-V2_ platform as the reference development kit. There are several advantages in using this platform for an introductory course, enabling the potential reach to a wider audience:
 
-.. _Exynos4412: https://en.wikipedia.org/wiki/Exynos
+- The Avnet Ultra96-V2 is powered by a Xilinx ZU3EG device that contains a fully featured processing system (PS) and a smaller programmable logic (PL) supported by free Xilinx development licenses.
+- The Avnet Ultra96-V2 is one of the cheapest development kits based on the Xilinx Zynq UltraScale+ MPSoC devices, which makes it the ideal choice for both hobbyist and enterprise level courses.
+- The Avnet Ultra96-V2 follows the 96 Boards standard promoted by Linaro for advanced ARM based platforms, so it supports a huge range of commercially available mezzanine and expansion cards.
+
+.. _Avnet-Ultra96-V2: https://ohwr.org/project/soc-course/wikis/Avnet-Ultra96-V2
 
 Bootloader ( U-boot )
 ---------------------
