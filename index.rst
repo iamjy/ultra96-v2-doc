@@ -15,10 +15,10 @@ Bootloader ( U-boot )
 :doc:`**configure** </source/linux/u-boot/configure>`
     How to configure bootloader.
     
-:doc:`compile </source/linux/u-boot/compile>`
+- :doc:`compile </source/linux/u-boot/compile>`
     How to compile bootloader.
     
-:doc:`development </source/linux/u-boot/development>`
+* :doc:`development </source/linux/u-boot/development>`
     Guidelines and release planning and check dependencies.
     
 :doc:`changelog </source/linux/u-boot/changelog>`
