@@ -10,7 +10,7 @@ For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected t
 .. _Avnet-Ultra96-V2: https://ohwr.org/project/soc-course/wikis/Avnet-Ultra96-V2
 
 Bootloader ( U-boot )
-#####################
+##################
 
 :doc:`configure </source/linux/u-boot/configure>`
     How to configure bootloader.
