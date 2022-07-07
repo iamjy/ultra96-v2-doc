@@ -21,7 +21,7 @@ Bootloader ( U-boot )
 * :doc:`development </source/linux/u-boot/development>`
     Guidelines and release planning and check dependencies.
     
-:doc:`changelog </source/linux/u-boot/changelog>`
+* :doc:`changelog </source/linux/u-boot/changelog>`
     The bootloader development changelog.
 
 .. toctree::
