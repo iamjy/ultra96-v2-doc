@@ -12,7 +12,7 @@ For this course on Xilinx Zynq UltraScale+ MPSoC development, we have selected t
 Bootloader ( U-boot )
 *********************
 
-:doc:`**configure** </source/linux/u-boot/configure>`
+* :doc:`configure </source/linux/u-boot/configure>`
     How to configure bootloader.
     
 - :doc:`compile </source/linux/u-boot/compile>`
@@ -37,16 +37,16 @@ Bootloader ( U-boot )
 Kernel ( Linux )
 ****************
 
-:doc:`configure </source/linux/kernel/configure>`
+* :doc:`configure </source/linux/kernel/configure>`
     How to configure kernel.
 
-:doc:`compile </source/linux/kernel/compile>`
+* :doc:`compile </source/linux/kernel/compile>`
     How to configure kernel.
-    
-:doc:`development </source/linux/kernel/development>`
+
+* :doc:`development </source/linux/kernel/development>`
     Guidelines and release planning and check dependencies.
-    
-:doc:`changelog </source/linux/kernel/changelog>`
+
+* :doc:`changelog </source/linux/kernel/changelog>`
     The kernel development changelog.
 
 .. toctree::
@@ -62,13 +62,13 @@ Kernel ( Linux )
 RootFS ( Linux )
 ****************
 
-:doc:`build </source/linux/rootfs/build>`
+* :doc:`build </source/linux/rootfs/build>`
     How to create a rootfs image
     
-:doc:`development </source/linux/rootfs/development>`
+* :doc:`development </source/linux/rootfs/development>`
     Guidelines and release planning and check dependencies.
     
-:doc:`changelog </source/linux/rootfs/changelog>`
+* :doc:`changelog </source/linux/rootfs/changelog>`
     The rootfs development changelog.
 
 .. toctree::
@@ -83,13 +83,13 @@ RootFS ( Linux )
 Petalinux
 *********
 
-:doc:`Build </source/xilinx/petalinux/build>`
+* :doc:`Build </source/xilinx/petalinux/build>`
     How to build in Petalinux
     
-:doc:`debug </source/xilinx/petalinux/debug>`
+* :doc:`debug </source/xilinx/petalinux/debug>`
     Guidelines and release planning and check dependencies.
     
-:doc:`changelog </source/xilinx/petalinux/changelog>`
+* :doc:`changelog </source/xilinx/petalinux/changelog>`
     The petalinux development environment changelog.
     
 .. toctree::
@@ -104,10 +104,10 @@ Petalinux
 Vitis IDE
 *********
 
-:doc:`Build </source/xilinx/vitis_ide/build>`
+* :doc:`Build </source/xilinx/vitis_ide/build>`
     How to build using Vitis IDE tool
 
-:doc:`Debug </source/xilinx/vitis_ide/debug>`
+* :doc:`Debug </source/xilinx/vitis_ide/debug>`
     How to debug using Vitis IDE tool
 
 .. toctree::
