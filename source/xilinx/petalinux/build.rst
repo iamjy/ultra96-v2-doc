@@ -38,23 +38,34 @@ Build
     $ petalinux-config -c kernel
     $ petalinux-build -c kernel -x build
 
-2.3 Make Rootfs
-================
+3. Create Rootfs
+****************
+Small rootfs:
+
 .. code:: console
 
     $ vim ./components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-user.bb
     $ vim ./components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-user.inc
+
     $ petalinux-build -c petalinux-image-user -x clean
     $ petalinux-build -c petalinux-image-user -x cleansstate
     $ petalinux-build -c petalinux-image-user -x mrproper
     $ petalinux-build -c petalinux-image-user -x build
-    or
+
+Normal rootfs:
+
+.. code:: console
+
     $ petalinux-build -c rootfs -x clean
     $ petalinux-build -c rootfs -x cleansstate
     $ petalinux-build -c rootfs -x mrproper
     $ petalinux-config -c rootfs
     $ petalinux-build -c rootfs -x build
     
+Mount rootfs:
+
+.. code:: console
+
     $ mkdir rootfs/
     $ sudo mount -t ext4 rootfs.ext4 rootfs/
     $ ls rootfs/
