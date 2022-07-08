@@ -14,8 +14,9 @@ Build
 2. Compile
 *************
 .. code:: console
+
     $ source ./settings.sh
-    $ petalinux-build
+    $ petalinux-build    # Full build
     
 2.1 Bootloader Compile
 ======================
