@@ -123,7 +123,7 @@ Insert SD Card and Check mount info:
     $ dmesg | tail
     $ mount
     
-Write boot images to BOOT partition:
+Write boot images ``BOOT.BIN`` ``image.ub`` ``boot.scr`` to BOOT partition:
 
 .. code:: console
 
