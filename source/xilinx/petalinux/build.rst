@@ -98,6 +98,7 @@ Partition:
 
     $ sudo fdisk /dev/sdx
     $ sudo fdisk -l
+    
     Device     Boot   Start      End  Sectors  Size Id Type
     /dev/sdx1          2048  2099199  2097152    1G  c W95 FAT32 (LBA)
     /dev/sdx2       2099200 31205375 29106176 13.9G 83 Linux
@@ -113,6 +114,7 @@ Specify mount directory:
 .. code:: console
 
     $ sudo vim /etc/fstab
+    
     UUID=5AA3-7D75 /media/louis/SD_BOOT vfat defaults 0 0
     UUID=2749244d-79ab-4493-87b1-2dace4105cbb /media/louis/SD_ROOTFS ext4 defaults 0 0
 
@@ -129,7 +131,7 @@ Write boot images ``BOOT.BIN`` ``image.ub`` ``boot.scr`` to BOOT partition:
 
     $ sudo cp BOOT.BIN image.ub boot.scr /media/louis/SD_BOOT
 
-Write rootfs images to ROOTFS partition:
+Write rootfs images ``rootfs.ext4`` to ROOTFS partition:
 
 .. code:: console
 
