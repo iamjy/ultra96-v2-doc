@@ -1,21 +1,24 @@
 Build
 #####
 
-0. Setup Build Environment
+1. Setup Build Environment
 **************************
+1.1 Docker
+==========
+
+
+1.2 NFS
+=======
+
+
+2. Build
+*************
 .. code:: console
 
     $ source ./settings.sh
     $ petalinux-build
-
-
-1. Full Build
-*************
-.. code:: console
-
-    $ petalinux-build
     
-1.1 Bootloader Compile
+2.1 Bootloader Compile
 ======================
 .. code:: console
 
@@ -25,7 +28,7 @@ Build
     $ petalinux-config -c u-boot
     $ petalinux-build -c u-boot -x build
     
-1.2 Kernel Compile
+2.2 Kernel Compile
 ==================
 .. code:: console
 
@@ -35,7 +38,7 @@ Build
     $ petalinux-config -c kernel
     $ petalinux-build -c kernel -x build
 
-1.3 Make Rootfs
+2.3 Make Rootfs
 ================
 .. code:: console
 
@@ -51,25 +54,71 @@ Build
     $ petalinux-build -c rootfs -x mrproper
     $ petalinux-config -c rootfs
     $ petalinux-build -c rootfs -x build
+    
+    $ mkdir rootfs/
+    $ sudo mount -t ext4 rootfs.ext4 rootfs/
+    $ ls rootfs/
+    $ sudo umount rootfs/
 
-2. Create Images
+3. Create Images
 ****************
 .. code:: console
 
     $ cd ./petalinux_u96v2/bsp/images/linux
-    $ petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga system.bit --pmufw pmufw.elf --u-boot --forc
+    $ petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga system.bit --pmufw pmufw.elf --u-boot --force
 
-3. Flash Images
+4. Flash Images
 ***************
 .. code:: console
 
     $ cd ./petalinux_u96v2/bsp/images/linux
 
-3.1 JTAG
+4.1 JTAG
 ========
 .. code:: console
 
     $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit
 
-3.2 SD Card
+4.2 SD Card
 ===========
+Specify mount directory:
+.. code:: console
+
+    $ sudo vim /etc/fstab
+
+Insert SD Card and Check mount info:
+.. code:: console
+
+    $ dmesg | tail
+    $ mount
+    
+Write boot images to BOOT partition:
+.. code:: console
+
+    $ sudo cp BOOT.BIN image.ub boot.scr /media/louis/5AA3-7D75
+
+Write rootfs images to ROOTFS partition:
+.. code:: console
+
+    $ sudo dd if=rootfs.ext4 of=/dev/sdx2
+    or
+    $ make rootfs/
+    $ mount -t ext4 rootfs.ext4 rootfs/
+    $ sudo cp -rf rootfs/* /media/louis/2749244d-79ab-4493-87b1-2dace4105cbb
+    $ sync
+
+4.3 NFS
+=======
+Host:
+.. code:: console
+
+    $ sudo cp BOOT.BIN boot.scr image.ub /mnt/shared/images/u96v2-v2021.2-images/linux/
+    $ sudo cp rootfs.ext4 /mnt/shared/images/u96v2-v2021.2-images/linux/
+
+Target Board:
+.. code:: console
+
+    $ ifconfig eth0 up x.x.x.x or ifup eth0 ( /etc/network/interface )
+    $ cp /mnt/cifs/images/u96v2-v2021.2-images/linux/BOOT.BIN
+    $ cp /mnt/cifs/images/u96v2-v2021.2-images/linux/image.ub
+    $ reboot
