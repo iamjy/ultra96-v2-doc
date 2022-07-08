@@ -20,6 +20,9 @@ Host:
     
     $ sudo exportfs -a
     $ sudo exportfs -v    # or showmount -e
+    
+    /nfs            <world>(sync,wdelay,hide,no_subtree_check,sec=sys,rw,secure,no_root_squash,no_all_squash)
+    
     $ service nfs-kernel-server restart    # stop -> start
     
 Target board:
