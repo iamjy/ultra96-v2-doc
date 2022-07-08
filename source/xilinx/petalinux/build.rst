@@ -11,7 +11,7 @@ Build
 =======
 
 
-2. Build
+2. Compile
 *************
 .. code:: console
 
@@ -60,62 +60,86 @@ Build
     $ ls rootfs/
     $ sudo umount rootfs/
 
-3. Create Images
+4. Create Boot Images
 ****************
 .. code:: console
 
     $ cd ./petalinux_u96v2/bsp/images/linux
     $ petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga system.bit --pmufw pmufw.elf --u-boot --force
 
-4. Flash Images
+5. Flash Images
 ***************
 .. code:: console
 
     $ cd ./petalinux_u96v2/bsp/images/linux
 
-4.1 JTAG
+5.1 JTAG
 ========
 .. code:: console
 
     $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit
 
-4.2 SD Card
+5.2 SD Card
 ===========
+Partition:
+
+.. code:: console
+
+    $ sudo fdisk /dev/sdx
+    $ sudo fdisk -l
+    Device     Boot   Start      End  Sectors  Size Id Type
+    /dev/sdx1          2048  2099199  2097152    1G  c W95 FAT32 (LBA)
+    /dev/sdx2       2099200 31205375 29106176 13.9G 83 Linux
+
+Format:
+
+.. code:: console
+
+    $ sudo mkfs -t ext4 /dev/sdx2
+
 Specify mount directory:
+
 .. code:: console
 
     $ sudo vim /etc/fstab
+    UUID=5AA3-7D75 /media/louis/SD_BOOT vfat defaults 0 0
+    UUID=2749244d-79ab-4493-87b1-2dace4105cbb /media/louis/SD_ROOTFS ext4 defaults 0 0
 
 Insert SD Card and Check mount info:
+
 .. code:: console
 
     $ dmesg | tail
     $ mount
     
 Write boot images to BOOT partition:
+
 .. code:: console
 
-    $ sudo cp BOOT.BIN image.ub boot.scr /media/louis/5AA3-7D75
+    $ sudo cp BOOT.BIN image.ub boot.scr /media/louis/SD_BOOT
 
 Write rootfs images to ROOTFS partition:
+
 .. code:: console
 
     $ sudo dd if=rootfs.ext4 of=/dev/sdx2
     or
     $ make rootfs/
     $ mount -t ext4 rootfs.ext4 rootfs/
-    $ sudo cp -rf rootfs/* /media/louis/2749244d-79ab-4493-87b1-2dace4105cbb
+    $ sudo cp -rf rootfs/* /media/louis/SD_ROOTFS
     $ sync
 
 4.3 NFS
 =======
 Host:
+
 .. code:: console
 
     $ sudo cp BOOT.BIN boot.scr image.ub /mnt/shared/images/u96v2-v2021.2-images/linux/
     $ sudo cp rootfs.ext4 /mnt/shared/images/u96v2-v2021.2-images/linux/
 
 Target Board:
+
 .. code:: console
 
     $ ifconfig eth0 up x.x.x.x or ifup eth0 ( /etc/network/interface )
