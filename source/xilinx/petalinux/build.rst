@@ -10,6 +10,42 @@ Build
 1.2 NFS
 =======
 
+Host:
+
+.. code:: console
+
+    $ sudo vim /etc/exports
+    
+    /nfs *(rw,sync,no_subtree_check,no_root_squash)
+    
+    $ sudo exportfs -a
+    $ sudo exportfs -v    # or showmount -e
+    $ service nfs-kernel-server restart    # stop -> start
+    
+Target board:
+
+.. code:: console
+
+    $ cat /proc/filesystems
+    
+    nodev    nfs
+    nodev    nfs4
+        
+    $ sudo vi /etc/fstab
+    
+    x.x.x.x:/nfs /mnt/nfs nfs defaults 0 0
+
+1.3 CIFS
+========
+Host:
+
+Target board:
+
+.. code:: console
+
+    $ sudo vi /etc/fstab
+    
+    //x.x.x.x/Public /mnt/cifs cifs user=louis,password=louis_smb,_netdev 0 0
 
 2. Compile
 *************
