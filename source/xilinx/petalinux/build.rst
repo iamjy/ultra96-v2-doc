@@ -14,7 +14,6 @@ Build
 2. Compile
 *************
 .. code:: console
-
     $ source ./settings.sh
     $ petalinux-build
     
