@@ -12,7 +12,8 @@ Build
 
 **【 Host 】**
 
-#. NFS 파일 시스템을 지원할 수 있도록 리눅스 커널 설정 변경
+1.2.1 NFS 파일 시스템을 지원할 수 있도록 리눅스 커널 설정 변경
+----------------------------------------------------
 
 .. code:: console
 
@@ -24,8 +25,19 @@ Build
 .. code:: console
 
     $ petalinux-config -c kernel -x build
-    
-#. NFS 환경 설정
+
+1.2.2 NFS 서버 패키지 설치
+-----------------------
+
+.. code:: console
+
+    $ sudo apt insall nfs-kernel-server
+    $ sudo apt install nfs-common
+
+1.2.3 NFS 서버 환경 설정
+---------------------
+
+* 공유 디렉토리 설정
 
 .. code:: console
 
@@ -33,6 +45,10 @@ Build
     
     /nfs *(rw,sync,no_subtree_check,no_root_squash)
     
+* NFS 서버 재시작
+
+.. code:: console
+
     $ sudo exportfs -a
     $ sudo exportfs -v    # or showmount -e
     
@@ -44,7 +60,8 @@ Build
   
 **【 Target Board 】**
 
-#. ``/proc/filesystems`` 에서 커널이 지원하는 파일 시스템들 중에 ``NFS`` 를 지원하는지 확인
+1.2.4 ``/proc/filesystems`` 에서 커널이 지원하는 파일 시스템들 중에 ``NFS`` 를 지원하는지 확인
+-----------------------------------------------------------------------------------
 
 .. code:: console
 
@@ -52,10 +69,26 @@ Build
 
     nodev    nfs
     nodev    nfs4
-    
-.. image:: images/nfs_0.jpg
 
-#. NFS 네트워크 드라이브 연결 ( 부팅 후 자동 마운트 )
+.. image:: images/nfs_2.jpg
+
+1.2.5 NFS 디렉토리를 마운트할 수 있도록 관련 라이브러리 및 패키지 설치
+----------------------------------------------------------
+
+.. code:: console
+
+    $ petalinux-config -c rootfs
+
+.. image:: images/nfs_3.jpg
+
+.. code:: console
+
+    $ petalinux-config -c rootfs -x build
+
+1.2.6 NFS 네트워크 드라이브 연결
+------------------------------------------------
+
+* 부팅 후 자동 마운트
 
 .. code:: console
 
