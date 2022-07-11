@@ -44,7 +44,7 @@ Build
   
 **【 Target Board 】**
 
-#. ``/proc/filesystems``에서 커널이 지원하는 파일 시스템들 중에 ``NFS``를 지원하는지 확인
+#. ``/proc/filesystems`` 에서 커널이 지원하는 파일 시스템들 중에 ``NFS`` 를 지원하는지 확인
 
 .. code:: console
 
