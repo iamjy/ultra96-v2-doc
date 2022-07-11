@@ -108,7 +108,7 @@ Build
 
 .. code:: console
 
-    $ petalinux-config -c rootfs -x build
+    $ petalinux-build -c rootfs -x build
 
 1.2.6 NFS 네트워크 드라이브 연결
 ----------------------------
