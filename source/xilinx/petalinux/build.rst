@@ -45,6 +45,25 @@ Build
     
     /nfs *(rw,sync,no_subtree_check,no_root_squash)
     
+.. list-table:: Options
+    :header-rows: 1
+    :widths: 10, 10
+
+    * - Option
+      - Description
+    * - /nfs
+      - 공유 디렉토리 ( 경로 포함 )
+    * - IP 
+      - 허용 클라이언트 IP 를 지정 ( *: 전체 서브넷 허용 )
+    * - rw
+      - Stands for read / write ( ro: Read-only file system )
+    * - sync
+      - Requires changes to be written to the disk beefore the are applied
+    * - no_subtree_check
+      - Eliminates subtree checking
+    * - no_root_squash
+      - 클라이언트에게 root 권한 접금을 허용하지 
+    
 * NFS 서버 재시작
 
 .. code:: console
