@@ -25,7 +25,7 @@ Build
 
     $ petalinux-config -c kernel -x build
     
-Host:
+#. NFS 환경 설정
 
 .. code:: console
 
@@ -40,15 +40,24 @@ Host:
     
     $ service nfs-kernel-server restart    # stop -> start
     
-Target board:
+        
+**【 Target Board 】**
+
+#. ``/proc/filesystems``에서 커널이 지원하는 파일 시스템들 중에 ``NFS``를 지원하는지 확인
 
 .. code:: console
 
     $ cat /proc/filesystems
-    
+
     nodev    nfs
     nodev    nfs4
-        
+    
+.. image:: images/nfs_0.jpg
+
+#. NFS 네트워크 드라이브 연결 ( 부팅 후 자동 마운트 )
+
+.. code:: console
+
     $ sudo vi /etc/fstab
     
     x.x.x.x:/nfs /mnt/nfs nfs defaults 0 0
