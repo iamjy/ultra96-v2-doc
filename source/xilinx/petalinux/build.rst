@@ -10,6 +10,18 @@ Build
 1.2 NFS
 =======
 
+**【 Host 】**
+
+#. NFS 파일 시스템을 지원할 수 있도록 리눅스 커널 설정 변경
+
+.. image:: images/nfs_0.jpg
+.. image:: images/nfs_1.jpg
+
+.. code:: console
+
+    $ petalinux-config -c kernel
+    
+
 Host:
 
 .. code:: console
