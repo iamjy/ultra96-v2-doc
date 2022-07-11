@@ -161,6 +161,8 @@ Build
 
 .. image:: images/cifs_2.jpg
 
+------
+
 **【 Target Board Client 】**
 
 1.3.5 CIFS 클라이언트 패키지 설치
