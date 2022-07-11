@@ -26,8 +26,8 @@ Build
 
     $ petalinux-config -c kernel -x build
 
-1.2.2 NFS 서버 라이브러리 및 패키지 설치
-----------------------------------
+1.2.2 NFS 서버 패키지 설치
+-----------------------
 
 .. code:: console
 
@@ -64,7 +64,7 @@ Build
     * - no_root_squash
       - 클라이언트에게 root 권한 접금을 허용하지 
     
-* NFS 서버 재시작
+* NFS 서버 재구동
 
 .. code:: console
 
@@ -74,9 +74,9 @@ Build
     /nfs            <world>(sync,wdelay,hide,no_subtree_check,sec=sys,rw,secure,no_root_squash,no_all_squash)
     
     $ service nfs-kernel-server restart    # stop -> start
-    
+
 ------
-  
+
 **【 Target Board Client 】**
 
 1.2.4 NFS 파일 시스템 지원 여부 확인
@@ -93,8 +93,8 @@ Build
 
 .. image:: images/nfs_2.jpg
 
-1.2.5 NFS 클라이언트 라이브러리 및 패키지 설치
----------------------------------------
+1.2.5 NFS 클라이언트 패키지 설치
+----------------------------
 
 * NFS 디렉토리를 마운트하기 위해 필요한 패키지 설치
 
@@ -121,15 +121,82 @@ Build
 
 1.3 CIFS
 ========
-Host:
 
-Target board:
+**【 Host Server 】**
+
+1.3.1 CIFS 파일 시스템을 지원할 수 있도록 리눅스 커널 설정 변경
+-----------------------------------------------------
+
+.. code:: console
+
+    $ petalinux-config -c kernel
+    
+.. image:: images/cifs_0.jpg
+.. image:: images/cifs_1.jpg
+
+.. code:: console
+
+    $ petalinux-config -c kernel -x build
+
+1.3.2 CIFS 서버 패키지 설치
+------------------------
+
+.. code:: console
+
+    $ sudo apt insall cifs-utils
+
+1.3.3 Samba 계정 생성
+-------------------
+
+.. code:: console
+
+    $ sudo smbpasswd -a [ID]
+
+1.3.4 공유 디렉토리 설정
+--------------------
+
+.. image:: images/cifs_2.jpg
+
+**【 Target Board Client 】**
+
+1.3.5 CIFS 클라이언트 패키지 설치
+----------------------------
+
+* CIFS 디렉토리를 마운트하기 위해 필요한 패키지 설치
+
+.. code:: console
+
+    $ vim ./components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-user.bb
+    
+.. image:: images/cifs_3.jpg
+
+.. code:: console
+
+    $ vim ./components/yocto/layers/meta-petalinux/recipes-core/images/petalinux-image-user.inc
+    
+    # 아래 두 패키지 추가
+    cifs-utils \
+    nfs-utils \
+
+.. image:: images/cifs_4.jpg
+
+1.2.6 CIFS 네트워크 드라이브 연결
+----------------------------
+
+* CLI에서 명령어 입력을 통한 마운트
+
+.. code:: console
+
+    $ mount -t cifs -o user=xxx,password=xxx \\x.x.x.x\cifs /mnt/cifs
+    # mount -t cifs -o user=[ID],password=[PASSWORD] \\[IP]\[공유 디렉토리] [마운트 디렉토리]
+    
+* 부팅 후 자동 마운트
 
 .. code:: console
 
     $ sudo vi /etc/fstab
     
-    //x.x.x.x/Public /mnt/cifs cifs user=louis,password=louis_smb,_netdev 0 0
+    //x.x.x.x/Public /mnt/cifs cifs user=xxx,password=xxx,_netdev 0 0
 
 2. Compile
 *************
