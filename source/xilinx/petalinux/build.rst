@@ -282,6 +282,10 @@ Mount rootfs:
 
 #. Petalinux Configuration for INITRAMFS
 
+.. code-block:: console
+
+    $ petalinux-config
+
 .. image:: images/initramfs_0.png
 .. image:: images/initramfs_1.png
     
