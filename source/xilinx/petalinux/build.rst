@@ -284,7 +284,7 @@ Mount rootfs:
     
     #. Boot argument 설정
     
-        .. code-block:: c
+        .. code-block:: console
         
             $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
 
