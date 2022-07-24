@@ -354,6 +354,8 @@ Mount rootfs:
         $ df -h
     
     .. image:: images/initramfs_7.png
+    >>
+    >
     
     .. note::
         PMUFW / FSBL은 bitstream의 XSA ( Export Hardware )로 생성한 Vitis IDE 'Platform project'에서 빌드한 이미지를 사용한다.
