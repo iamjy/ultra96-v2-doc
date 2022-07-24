@@ -281,17 +281,18 @@ Mount rootfs:
 =============================================
 
 #. Petalinux Configuration for INITRAMFS
-    #. Boot argument 설정
     
     .. code-block:: RST
     
-        .. image::images/initramfs_2.png    
+        #. Boot argument 설정
     
-    .. code:: console
+            .. image::images/initramfs_2.png    
     
-        $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+        .. code:: console
     
-    #. Rootfs 생성
+            $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+    
+        #. Rootfs 생성
     
 #. Kernel Configuration for INITRAMFS
 
