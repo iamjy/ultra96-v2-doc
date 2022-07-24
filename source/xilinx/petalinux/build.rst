@@ -320,8 +320,21 @@ Mount rootfs:
     
     .. code-block:: console
 
-        petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
+        $ petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
 
+#. JTAG Downloads
+
+    .. code-block:: console
+    
+        $ petalinux-boot --jtag --u-boot --fpga --bitstream design_1_wrapper.bit --pmufw pmufw.elf
+        $ petalinux-boot --jtag --kernel --fpga --bitstream design_1_wrapper.bit --pmufw pmufw.elf
+        
+    .. note::
+        PMUFW / FSBL은 bitstream의 XSA ( Export Hardware )로 생성한 Vitis IDE 'Platform project'에서 빌드한 이미지를 사용한다.
+        
+    .. warn::
+        --u-boot 옵션은 u-boot CLI에서 빠르게 작업을 진행하기 위해 linux kernel 이미지와 RooFS를 메모리에 적재하지 않는다.
+    
 .. code:: console
 
     $ petalinux-boot --jtag --u-boot --fpga --bitstream system.bit --pmufw pmufw.elf
@@ -329,6 +342,8 @@ Mount rootfs:
 .. code:: console
 
     $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit --pmufw pmufw.elf
+
+
 
 5.2 Flash-based File System ( eMMC, JTAG )
 ==========================================
