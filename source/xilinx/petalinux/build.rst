@@ -342,16 +342,6 @@ Mount rootfs:
         
     .. warning::
         --u-boot 옵션은 u-boot CLI에서 빠르게 작업을 진행하기 위해 linux kernel 이미지와 RooFS를 메모리에 적재하지 않는다.
-    
-.. code:: console
-
-    $ petalinux-boot --jtag --u-boot --fpga --bitstream system.bit --pmufw pmufw.elf
-
-.. code:: console
-
-    $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit --pmufw pmufw.elf
-
-
 
 5.2 Flash-based File System ( eMMC, JTAG )
 ==========================================
