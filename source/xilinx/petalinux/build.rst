@@ -281,6 +281,8 @@ Mount rootfs:
 =============================================
 
 #. Petalinux Configuration for INITRAMFS
+
+#. Kernel Configuration for INITRAMFS
     
     #. Modify boot argument
     
@@ -289,11 +291,35 @@ Mount rootfs:
             $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
             
         .. note::
-            "... root=/dev/ram0 ..."
+            Modify 'chosen' node.            
+            'bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw rootwait quiet'
 
     #. Create RootFS
     
-#. Kernel Configuration for INITRAMFS
+        .. code-block:: console
+        
+            $ petalinux-build -c petalinux-image-user -x build
+            $ mkdir initramfs
+            $ tar -xf rootfs.tar.gz -C initramfs
+            or
+            $ sudo mount -t ext4 rootfs.ext4 initramfs
+        
+    #. Apply the modification to DTB and Create linux kernel image included RooFS
+            
+        .. code-block:: console
+        
+            $ petalinux-build -c kernel -x build
+            
+        .. note::
+            $ ls -al ./images/linux/system.dtb
+            $ dtc -I dtb -O dts -f system.dtb
+            $ vim system.dts
+            
+    #. Create BOOT.BIN
+    
+        .. code-block:: console
+        
+            petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
 
 .. code:: console
 
