@@ -292,6 +292,7 @@ Mount rootfs:
             
         .. note::
             Modify 'chosen' node.            
+            
             'bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw rootwait quiet'
 
     #. Create RootFS
@@ -299,9 +300,13 @@ Mount rootfs:
         .. code-block:: console
         
             $ petalinux-build -c petalinux-image-user -x build
+            
             $ mkdir initramfs
+            
             $ tar -xf rootfs.tar.gz -C initramfs
+            
             or
+            
             $ sudo mount -t ext4 rootfs.ext4 initramfs
         
     #. Apply the modification to DTB and Create linux kernel image included RooFS
