@@ -347,7 +347,6 @@ Mount rootfs:
         $ petalinux-boot --jtag --kernel --fpga --bitstream design_1_wrapper.bit --pmufw pmufw.elf
         
     .. image:: images/initramfs_6.png
-.. image:: 
     .. image:: images/initramfs_7.png
 .. image:: 
             
