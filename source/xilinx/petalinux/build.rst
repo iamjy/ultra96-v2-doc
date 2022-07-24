@@ -287,8 +287,8 @@ Mount rootfs:
     $ petalinux-config
 
 .. image:: images/initramfs_0.png
-
 .. image:: images/initramfs_1.png
+.. image:: 
     
     #. Create RootFS
 
@@ -301,7 +301,16 @@ Mount rootfs:
             $ sudo mount -t ext4 rootfs.ext4 initramfs
 
 #. Kernel Configuration for INITRAMFS
-    
+
+.. code-block:: console
+
+    $ petalinux-config -c kernel
+
+.. image:: images/initramfs_3.png
+.. image:: images/initramfs_4.png
+.. image:: images/initramfs_5.png
+.. image:: 
+
     #. Modify boot argument
     
         .. code-block:: console
