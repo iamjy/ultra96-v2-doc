@@ -285,6 +285,7 @@ Mount rootfs:
     .. image:: images/initramfs_0.png  
     
     .. image:: images/initramfs_1.png
+    
 
     #. Create RootFS
 
