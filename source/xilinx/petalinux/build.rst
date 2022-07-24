@@ -313,6 +313,7 @@ Mount rootfs:
             
         .. note::
             chosen 노드 수정 사항이 제대로 적용되었는지 DTB을 DTS로 변환하여 확인해본다.
+            
             ``$ dtc -I dtb -O dts -f system.dtb -o system.dts``
             
 #. Create BOOT.BIN
