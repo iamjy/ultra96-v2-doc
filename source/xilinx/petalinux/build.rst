@@ -284,11 +284,14 @@ Mount rootfs:
     
     #. Boot argument 설정
     
-    .. code-block:: console
+        .. code-block:: console
         
-        $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+            $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+            
+        .. note::
+            "... root=/dev/ram0 ..."
         
-    .. image:: images/initramfs_2.png
+        .. image:: images/initramfs_2.png
 
     #. Rootfs 생성
     
