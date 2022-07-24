@@ -287,6 +287,8 @@ Mount rootfs:
     .. code-block:: console
         
         $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+        
+    .. image:: images/initramfs_2.png
 
     #. Rootfs 생성
     
