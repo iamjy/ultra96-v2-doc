@@ -282,7 +282,7 @@ Mount rootfs:
 
 #. Petalinux Configuration for INITRAMFS
     
-    #. Boot argument 설정
+    #. Modify boot argument
     
         .. code-block:: console
         
@@ -290,10 +290,8 @@ Mount rootfs:
             
         .. note::
             "... root=/dev/ram0 ..."
-        
-        .. image:: images/initramfs_2.png
 
-    #. Rootfs 생성
+    #. Create RootFS
     
 #. Kernel Configuration for INITRAMFS
 
