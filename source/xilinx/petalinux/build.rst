@@ -293,20 +293,16 @@ Mount rootfs:
         .. note::
             Modify 'chosen' node.            
             
-            'bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw rootwait quiet'
+            ``bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw rootwait quiet``
 
     #. Create RootFS
     
         .. code-block:: console
         
-            $ petalinux-build -c petalinux-image-user -x build
-            
-            $ mkdir initramfs
-            
-            $ tar -xf rootfs.tar.gz -C initramfs
-            
-            or
-            
+            $ petalinux-build -c petalinux-image-user -x build            
+            $ mkdir initramfs            
+            $ tar -xf rootfs.tar.gz -C initramfs            
+            or            
             $ sudo mount -t ext4 rootfs.ext4 initramfs
         
     #. Apply the modification to DTB and Create linux kernel image included RooFS
@@ -316,9 +312,8 @@ Mount rootfs:
             $ petalinux-build -c kernel -x build
             
         .. note::
-            $ ls -al ./images/linux/system.dtb
-            $ dtc -I dtb -O dts -f system.dtb
-            $ vim system.dts
+            chosen 노드 수정 사항이 제대로 적용되었는지 DTB을 DTS로 변환하여 확인해본다.
+            ``$ dtc -I dtb -O dts -f system.dtb -o system.dts``
             
     #. Create BOOT.BIN
     
