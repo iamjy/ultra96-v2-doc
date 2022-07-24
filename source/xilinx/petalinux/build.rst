@@ -282,6 +282,16 @@ Mount rootfs:
 
 #. Petalinux Configuration for INITRAMFS
 
+    #. Create RootFS
+
+        .. code-block:: console
+
+            $ petalinux-build -c petalinux-image-user -x build            
+            $ mkdir initramfs            
+            $ tar -xf rootfs.tar.gz -C initramfs            
+            or            
+            $ sudo mount -t ext4 rootfs.ext4 initramfs
+
 #. Kernel Configuration for INITRAMFS
     
     #. Modify boot argument
@@ -294,16 +304,6 @@ Mount rootfs:
             Modify 'chosen' node.            
             
             ``bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/ram0 rw rootwait quiet``
-
-    #. Create RootFS
-    
-        .. code-block:: console
-        
-            $ petalinux-build -c petalinux-image-user -x build            
-            $ mkdir initramfs            
-            $ tar -xf rootfs.tar.gz -C initramfs            
-            or            
-            $ sudo mount -t ext4 rootfs.ext4 initramfs
         
     #. Apply the modification to DTB and Create linux kernel image included RooFS
             
@@ -315,11 +315,11 @@ Mount rootfs:
             chosen 노드 수정 사항이 제대로 적용되었는지 DTB을 DTS로 변환하여 확인해본다.
             ``$ dtc -I dtb -O dts -f system.dtb -o system.dts``
             
-    #. Create BOOT.BIN
+#. Create BOOT.BIN
     
-        .. code-block:: console
-        
-            petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
+    .. code-block:: console
+
+        petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
 
 .. code:: console
 
