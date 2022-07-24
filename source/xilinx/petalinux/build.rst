@@ -277,11 +277,34 @@ Mount rootfs:
 
     $ cd ./petalinux_u96v2/bsp/images/linux
 
-5.1 JTAG
-========
+5.1 RAM-based File System ( INITRAMFS, JTAG )
+=============================================
+
+#. Petalinux Configuration for INITRAMFS
+    #. Boot argument 설정
+    
+        .. image::images/initramfs_2.png    
+    
+        .. code:: console
+    
+            $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+    
+    #. Rootfs 생성
+    
+#. Kernel Configuration for INITRAMFS
+
 .. code:: console
 
-    $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit
+    $ petalinux-boot --jtag --u-boot --fpga --bitstream system.bit --pmufw pmufw.elf
+
+.. code:: console
+
+    $ petalinux-boot --jtag --kernel --fpga --bitstream system.bit --pmufw pmufw.elf
+
+5.2 Flash-based File System ( eMMC, JTAG )
+==========================================
+Partition:
+
 
 5.2 SD Card
 ===========
@@ -335,7 +358,7 @@ Write rootfs images ``rootfs.ext4`` to ROOTFS partition:
     $ sudo cp -rf rootfs/* /media/louis/SD_ROOTFS
     $ sync
 
-4.3 NFS
+5.4 NFS
 =======
 Host:
 
