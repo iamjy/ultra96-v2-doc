@@ -282,11 +282,7 @@ Mount rootfs:
 
 #. Petalinux Configuration for INITRAMFS
     
-.. code-block:: RST
-    
     #. Boot argument 설정
-
-    images/initramfs_2.png    
     
         .. code-block:: bash
         
