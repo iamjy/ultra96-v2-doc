@@ -277,8 +277,9 @@ Mount rootfs:
 
     $ cd ./petalinux_u96v2/bsp/images/linux
 
-5.1 RAM-based File System ( INITRAMFS, JTAG )
+5.1 INITRAMFS
 =============================================
+* RAM-based File System ( INITRAMFS, JTAG )
 
 #. Petalinux Configuration for INITRAMFS
 
@@ -362,9 +363,9 @@ Mount rootfs:
     .. warning::
         ``--u-boot`` 옵션은 u-boot CLI에서 빠르게 작업을 진행하기 위해 linux kernel 이미지와 RooFS를 메모리에 적재하지 않는다.
 
-5.2 Flash-based File System ( eMMC, JTAG )
+5.2 eMMC
 ==========================================
-Partition:
+* Flash-based File System ( eMMC, JTAG )
 
 
 5.2 SD Card
