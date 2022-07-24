@@ -346,9 +346,9 @@ Mount rootfs:
         $ petalinux-boot --jtag --u-boot --fpga --bitstream design_1_wrapper.bit --pmufw pmufw.elf
         $ petalinux-boot --jtag --kernel --fpga --bitstream design_1_wrapper.bit --pmufw pmufw.elf
         
-.. image:: images/initramfs_6.png
-.. image:: images/initramfs_7.png
-.. image::
+    .. image:: images/initramfs_6.png
+    .. image:: images/initramfs_7.png
+    .. image::
         
     .. note::
         PMUFW / FSBL은 bitstream의 XSA ( Export Hardware )로 생성한 Vitis IDE 'Platform project'에서 빌드한 이미지를 사용한다.
