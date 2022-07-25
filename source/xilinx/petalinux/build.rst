@@ -289,7 +289,7 @@ Mount rootfs:
 
     .. image:: images/initramfs_0.png
     .. image:: images/initramfs_1.png
-    .. image:: 
+    |
     
     #. Create RootFS
 
@@ -310,7 +310,7 @@ Mount rootfs:
     .. image:: images/initramfs_3.png
     .. image:: images/initramfs_4.png
     .. image:: images/initramfs_5.png
-    .. image:: 
+    |
 
     #. Modify boot argument
     
