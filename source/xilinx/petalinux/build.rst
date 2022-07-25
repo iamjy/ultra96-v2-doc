@@ -278,7 +278,7 @@ Mount rootfs:
     $ cd ./petalinux_u96v2/bsp/images/linux
 
 5.1 INITRAMFS
-=============================================
+=============
 * RAM-based File System ( INITRAMFS, JTAG )
 
 #. Petalinux Configuration for INITRAMFS
@@ -364,9 +364,60 @@ Mount rootfs:
         ``--u-boot`` 옵션은 u-boot CLI에서 빠르게 작업을 진행하기 위해 linux kernel 이미지와 RooFS를 메모리에 적재하지 않는다.
 
 5.2 eMMC
-==========================================
+========
 * Flash-based File System ( eMMC, JTAG )
 
+#. Petalinux Configuration for Ext4 File System
+
+.. code-block:: console
+
+    $ petalinux-config
+    
+.. image:: images/emmc_0.png    
+.. image:: images/emmc_1.png    
+|
+
+.. code-block:: console
+
+    $ petalinux-build -c petalinux-image-user -x build
+    
+#. Kernel Configuration for Ext4 File System
+
+.. code-block:: console
+
+    $ petalinux-config -c kernel
+    
+.. image:: images/emmc_2.png    
+.. image:: images/emmc_3.png    
+|
+
+    #. Modify boot argument
+    
+        .. code-block:: console
+        
+            $ vim ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+            
+        .. note::
+            Modify 'chosen' node.            
+            
+            ``bootargs = "earlycon console=ttyPS0,115200 clk_ignore_unused root=/dev/mmcblk0p2 rw rootwait quiet``
+        
+    #. Apply the modification to DTB and Create linux kernel image included RooFS
+            
+        .. code-block:: console
+        
+            $ petalinux-build -c kernel -x build
+            
+        .. note::
+            chosen 노드 수정 사항이 제대로 적용되었는지 DTB을 DTS로 변환하여 확인해본다.
+            
+            ``$ dtc -I dtb -O dts -f system.dtb -o system.dts``
+            
+#. Create BOOT.BIN
+    
+    .. code-block:: console
+
+        $ petalinux-package --boot --fsbl zynqmp_fsbl.elf --fpga design_1_wrapper.bit --pmufw pmufw.elf --u-boot --force
 
 5.2 SD Card
 ===========
