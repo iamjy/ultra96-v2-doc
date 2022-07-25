@@ -283,13 +283,13 @@ Mount rootfs:
 
 #. Petalinux Configuration for INITRAMFS
 
-.. code-block:: console
+    .. code-block:: console
 
-    $ petalinux-config
+        $ petalinux-config
 
-.. image:: images/initramfs_0.png
-.. image:: images/initramfs_1.png
-.. image:: 
+    .. image:: images/initramfs_0.png
+    .. image:: images/initramfs_1.png
+    .. image:: 
     
     #. Create RootFS
 
@@ -303,14 +303,14 @@ Mount rootfs:
 
 #. Kernel Configuration for INITRAMFS
 
-.. code-block:: console
+    .. code-block:: console
 
-    $ petalinux-config -c kernel
+        $ petalinux-config -c kernel
 
-.. image:: images/initramfs_3.png
-.. image:: images/initramfs_4.png
-.. image:: images/initramfs_5.png
-.. image:: 
+    .. image:: images/initramfs_3.png
+    .. image:: images/initramfs_4.png
+    .. image:: images/initramfs_5.png
+    .. image:: 
 
     #. Modify boot argument
     
@@ -369,27 +369,27 @@ Mount rootfs:
 
 #. Petalinux Configuration for Ext4 File System
 
-.. code-block:: console
+    .. code-block:: console
 
-    $ petalinux-config
-    
-.. image:: images/emmc_0.png    
-.. image:: images/emmc_1.png    
-.. image:: 
+        $ petalinux-config
 
-.. code-block:: console
+    .. image:: images/emmc_0.png    
+    .. image:: images/emmc_1.png    
+    .. image:: 
 
-    $ petalinux-build -c petalinux-image-user -x build
+    .. code-block:: console
+
+        $ petalinux-build -c petalinux-image-user -x build
     
 #. Kernel Configuration for Ext4 File System
 
-.. code-block:: console
+    .. code-block:: console
 
-    $ petalinux-config -c kernel
-    
-.. image:: images/emmc_2.png    
-.. image:: images/emmc_3.png    
-.. image:: 
+        $ petalinux-config -c kernel
+
+    .. image:: images/emmc_2.png    
+    .. image:: images/emmc_3.png    
+    .. image:: 
 
     #. Modify boot argument
     
