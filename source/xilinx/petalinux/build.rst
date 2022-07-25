@@ -375,7 +375,7 @@ Mount rootfs:
     
 .. image:: images/emmc_0.png    
 .. image:: images/emmc_1.png    
-|
+.. image:: 
 
 .. code-block:: console
 
@@ -389,7 +389,7 @@ Mount rootfs:
     
 .. image:: images/emmc_2.png    
 .. image:: images/emmc_3.png    
-|
+.. image:: 
 
     #. Modify boot argument
     
